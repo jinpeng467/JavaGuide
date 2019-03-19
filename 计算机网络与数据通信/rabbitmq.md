@@ -123,7 +123,7 @@ direct 类型常用在处理有优先级的任务，根据任务的优先级把�
 
 - RoutingKey 为一个点号“．”分隔的字符串（被点号“．”分隔开的每一段独立的字符串称为一个单词），如 “com.rabbitmq.client”、“java.util.concurrent”、“com.hidden.client”;
 - BindingKey 和 RoutingKey 一样也是点号“．”分隔的字符串；
-- BindingKey 中可以存在两种特殊字符串“*”和“#”，用于做模糊匹配，其中“#”用于匹配一个单词，“#”用于匹配多规格单词(可以是零个)。
+- BindingKey 中可以存在两种特殊字符串“*”和“#”，用于做模糊匹配，其中“.”用于匹配一个单词，“#”用于匹配多个单词(可以是零个)。
 
 ![topic 类型交换器](http://my-blog-to-use.oss-cn-beijing.aliyuncs.com/18-12-16/73843.jpg)
 
@@ -144,6 +144,10 @@ headers 类型的交换器不依赖于路由键的匹配规则来路由消息，
 通过 Docker 安装非常方便，只需要几条命令就好了，我这里是只说一下常规安装方法。
 
 前面提到了 RabbitMQ 是由 Erlang语言编写的，也正因如此，在安装RabbitMQ 之前需要安装 Erlang。
+
+注意：在安装 RabbitMQ 的时候需要注意 RabbitMQ 和 Erlang 的版本关系，如果不注意的话会导致出错，两者对应关系如下:
+
+![RabbitMQ 和 Erlang 的版本关系](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-3/RabbitMQ-Erlang.png)
 
 ### 2.1 安装 erlang
 
